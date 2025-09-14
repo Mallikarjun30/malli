@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Click the Button Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .game-container {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        button {
+            background: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #388e3c;
+        }
+        .score {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h2>Click the Button Game</h2>
+        <div class="score" id="score">Score: 0</div>
+        <button id="clickBtn">Click Me!</button>
+    </div>
+    <script>
+        let score = 0;
+        const scoreDisplay = document.getElementById('score');
+        const btn = document.getElementById('clickBtn');
+        btn.addEventListener('click', function() {
+            score++;
+            scoreDisplay.textContent = 'Score: ' + score;
+        });
+    </script>
+</body>
+</html>
