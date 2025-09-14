@@ -29,10 +29,31 @@
             font-size: 1.2em;
             cursor: pointer;
             transition: background 0.2s;
+                /* Animation styles */
+                outline: none;
         }
         button:hover {
             background: #388e3c;
         }
+            /* Button bounce animation */
+            @keyframes bounce {
+                0% { transform: scale(1); }
+                30% { transform: scale(1.2); }
+                50% { transform: scale(0.95); }
+                70% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            .bounce {
+                animation: bounce 0.3s;
+            }
+            /* Score fade-in animation */
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+            .fade-in {
+                animation: fadeIn 0.4s;
+            }
         .score {
             font-size: 1.5em;
             margin: 20px 0;
@@ -52,6 +73,12 @@
         btn.addEventListener('click', function() {
             score++;
             scoreDisplay.textContent = 'Score: ' + score;
+                // Animate button
+                btn.classList.add('bounce');
+                setTimeout(() => btn.classList.remove('bounce'), 300);
+                // Animate score
+                scoreDisplay.classList.add('fade-in');
+                setTimeout(() => scoreDisplay.classList.remove('fade-in'), 400);
         });
     </script>
 </body>
